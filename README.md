@@ -1,6 +1,19 @@
-# vue_blog_frontend
-前端开发仓库
+# vueblog-vue
 
-some useless lines \
-some useless lines \
-more useless lines
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
