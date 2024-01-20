@@ -1,9 +1,10 @@
 <template>
+    <Header></Header>
     <div>
         <el-container>
             <el-header>
                 <router-link to="/blogs">
-                    <img class="logo" src="https://img0.baidu.com/it/u=1294740880,2297058295&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500"
+                    <img class="logo" src="../assets/background.jpg"
                          style="height: 80%; margin-top: 20px">
                 </router-link>
                 <h2>Welcome to EZ-Blog</h2>
@@ -28,8 +29,17 @@
 </template>
 
 <script>
+
+    // import Header from "../components/header.vue";
+    import Header from "@/components/header.vue";
+
     export default {
         name: "LoginView",
+        components: {Header},
+        // components: () => import("../App.vue"),
+        // components: {
+        //     Header
+        // },
         data() {
             return {
                 ruleForm: {
@@ -53,11 +63,13 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         // 提交逻辑
-                        this.$axios.post('http://localhost:8081/login', this.ruleForm).then((res) => {
+                        this.$axios.post('http://localhost:8080/login', this.ruleForm).then((res) => {
                             const token = res.headers['authorization']
                             _this.$store.commit('SET_TOKEN', token)
                             _this.$store.commit('SET_USERINFO', res.data.data)
                             _this.$router.push("/blogs")
+                        }).catch(error => {
+                            console.error(error)
                         })
                     } else {
                         console.log('Errors occurred!');
@@ -82,7 +94,7 @@
 
 <style scoped>
     .el-header, .el-footer {
-        background-color: #B3C0D1;
+        background-color: #b3ccb2;
         color: #333;
         text-align: center;
         line-height: 60px;
@@ -96,7 +108,7 @@
     }
 
     .el-main {
-        background-color: #E9EEF3;
+        background-color: #e3ffdc;
         color: #333;
         text-align: center;
         line-height: 160px;

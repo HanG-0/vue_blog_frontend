@@ -22,17 +22,17 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/blog/add',
-    name: 'BlogEdit',
-    component: BlogsDetailView
-  },
-  {
     path: '/blog/:blogId',
     name: 'BlogDetail',
     component: BlogsDetailView
   },
   {
     path: '/blog/:blogId/edit',
+    name: 'BlogEdit',
+    component: BlogsEditView
+  },
+  {
+    path: '/blog/add',
     name: 'BlogEdit',
     component: BlogsEditView
   },
