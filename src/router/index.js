@@ -22,6 +22,15 @@ const routes = [
     component: LoginView
   },
   {
+    path: '/blog/add',
+    name: 'BlogAdd',
+    component: BlogsEditView,
+    meta: {
+      requireAuth: true
+    },
+  },
+
+  {
     path: '/blog/:blogId',
     name: 'BlogDetail',
     component: BlogsDetailView
@@ -29,13 +38,13 @@ const routes = [
   {
     path: '/blog/:blogId/edit',
     name: 'BlogEdit',
-    component: BlogsEditView
+    component: BlogsEditView,
+    meta: {
+      requireAuth: true
+    },
   },
-  {
-    path: '/blog/add',
-    name: 'BlogEdit',
-    component: BlogsEditView
-  },
+
+
 ]
 
 const router = createRouter({

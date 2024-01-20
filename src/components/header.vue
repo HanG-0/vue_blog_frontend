@@ -10,7 +10,7 @@
             <el-divider direction="vertical"></el-divider>
             <span>
 
-          <el-link type="success" href="/blog/add" :disabled="hasLogin">Post</el-link>
+          <el-link type="success" href="/blog/add" >Post</el-link>
         </span>
             <el-divider direction="vertical"></el-divider>
             <span v-show="!hasLogin">

@@ -1,5 +1,4 @@
 <template>
-    <Header></Header>
     <div>
         <el-container>
             <el-header>
@@ -35,7 +34,7 @@
 
     export default {
         name: "LoginView",
-        components: {Header},
+        //components: {Header},
         // components: () => import("../App.vue"),
         // components: {
         //     Header
@@ -62,11 +61,13 @@
                 const _this = this
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
+                        const _this = this
                         // 提交逻辑
                         this.$axios.post('http://localhost:8080/login', this.ruleForm).then((res) => {
-                            const token = res.headers['authorization']
-                            _this.$store.commit('SET_TOKEN', token)
-                            _this.$store.commit('SET_USERINFO', res.data.data)
+                            const jwt = res.headers['authorization']
+                            const userInfo = res.data.data
+                            _this.$store.commit('SET_TOKEN', jwt)
+                            _this.$store.commit('SET_USERINFO', userInfo)
                             _this.$router.push("/blogs")
                         }).catch(error => {
                             console.error(error)
