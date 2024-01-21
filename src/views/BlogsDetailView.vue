@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-import 'github-markdown-css/github-markdown.css' // 然后添加样式markdown-body
+import 'github-markdown-css/github-markdown.css'
 import Header from "@/components/header";
 export default {
     name: "BlogDetail",
