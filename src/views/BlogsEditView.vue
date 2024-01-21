@@ -4,15 +4,27 @@
         <div class="m-content">
             <el-form ref="editForm" status-icon :model="editForm" :rules="rules" label-width="80px">
                 <el-form-item label="Title" prop="title">
-                    <el-input v-model="editForm.title"></el-input>
+                    <el-input v-model="editForm.title" show-word-limit></el-input>
                 </el-form-item>
                 <el-form-item label="Abstraction" prop="description">
                     <el-input type="textarea" v-model="editForm.description"></el-input>
                 </el-form-item>
                 <el-form-item label="Content" prop="content">
-                    <mavon-editor v-model="editForm.content"/>
+<!--                    <mavon-editor v-model="editForm.content"/>-->
+                    <el-input
+                            type="textarea"
+                            v-model="editForm.content"
+                            resize="none"
+                            rows="10"
+                            autofocus
+                    ></el-input>
                 </el-form-item>
-                <el-form-item>
+                <el-radio-group v-model="radio1">
+                    <el-radio label="1" size="large">Public</el-radio>
+                    <el-radio label="2" size="large">Private</el-radio>
+                </el-radio-group>
+                <p></p>
+                <el-form-item class="button">
                     <el-button type="primary" @click="submitForm()">Create</el-button>
                     <el-button>Cancel</el-button>
                 </el-form-item>
@@ -42,11 +54,15 @@ export default {
             },
             rules: {
                 title: [
-                    {required: true, message: 'Input title:', trigger: 'blur'},
+                    {required: true, message: 'Add title:', trigger: 'blur'},
                     {min: 3, max: 50, message: 'Between 3 to 50 characters', trigger: 'blur'}
                 ],
                 description: [
-                    {required: true, message: 'Add abstraction:', trigger: 'blur'}
+                    {required: false, message: 'Add abstraction:', trigger: 'blur'}
+                ],
+                content: [
+                    {required: true, message: 'Content'},
+                    {min: 1, max: 500, message: 'No more than 500 characters'}
                 ]
             }
         }
@@ -92,5 +108,8 @@ export default {
 </script>
 
 <style scoped>
-
+    .button {
+        margin: 0 auto;
+        text-align: center;
+    }
 </style>

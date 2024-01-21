@@ -1,6 +1,6 @@
 <template>
     <div class="m-content">
-        <h3>Welcome to CosSky's EZ-Blogs</h3>
+        <h3>Welcome to EZ-Blogs</h3>
         <div class="block">
             <div class="block"><el-avatar :size="150" :src="user.avatar"></el-avatar></div>
             <div>{{ user.username }}</div>
@@ -31,7 +31,6 @@ export default {
             user: {
                 username: 'Tourist',
                 avatar: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-                // avatar: "components/avatar.png",
             },
             blogs: {},
             currentPage: 1,
