@@ -51,11 +51,16 @@ export default {
         }
     },
     created() {
+      try {
         if (this.$store.getters.getUser.username) {
-            this.user.username = this.$store.getters.getUser.username
-            this.user.avatar = this.$store.getters.getUser.avatar
-            this.hasLogin = true
+          this.user.username = this.$store.getters.getUser.username
+          this.user.avatar = this.$store.getters.getUser.avatar
+          this.hasLogin = true
         }
+      }catch (e) {
+        console.log(e)
+      }
+
     }
 }
 </script>
