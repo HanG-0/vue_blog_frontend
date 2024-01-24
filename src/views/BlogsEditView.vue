@@ -19,10 +19,10 @@
                             autofocus
                     ></el-input>
                 </el-form-item>
-                <el-radio-group v-model="radio1">
-                    <el-radio label="1" size="large">Public</el-radio>
-                    <el-radio label="2" size="large">Private</el-radio>
-                </el-radio-group>
+<!--                <el-radio-group v-model="radio1">-->
+<!--                    <el-radio label="1" size="large">Public</el-radio>-->
+<!--                    <el-radio label="2" size="large">Private</el-radio>-->
+<!--                </el-radio-group>-->
                 <p></p>
                 <el-form-item class="button">
                     <el-button type="primary" @click="submitForm()">Create</el-button>

@@ -10,7 +10,7 @@
             <el-divider direction="vertical"></el-divider>
             <span>
 
-          <el-link type="success" href="/blog/add" :disabled="hasLogin">Post</el-link>
+          <el-link type="success" href="/blog/add" :disabled="!hasLogin">Post</el-link>
         </span>
             <el-divider direction="vertical"></el-divider>
             <span v-show="!hasLogin">
@@ -40,7 +40,7 @@ export default {
     methods: {
         logout() {
             const _this = this
-            this.$axios.get('http://localhost:8081/logout', {
+            this.$axios.get('/logout', {
                 headers: {
                     "Authorization": localStorage.getItem("token")
                 }
@@ -51,11 +51,11 @@ export default {
         }
     },
     created() {
-        // if (this.$store.getters.getUser.username) {
-            // this.user.username = this.$store.getters.getUser.username
-            // this.user.avatar = this.$store.getters.getUser.avatar
-            // this.hasLogin = true
-        // }
+        if (this.$store.getters.getUser.username) {
+            this.user.username = this.$store.getters.getUser.username
+            this.user.avatar = this.$store.getters.getUser.avatar
+            this.hasLogin = true
+        }
     }
 }
 </script>

@@ -43,8 +43,8 @@
         data() {
             return {
                 ruleForm: {
-                    username: 'cossky',
-                    password: '123456',
+                    username: 'vueblog',
+                    password: '111111',
                 },
                 rules: {
                     username: [
@@ -63,7 +63,7 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         // 提交逻辑
-                        this.$axios.post('http://localhost:8080/login', this.ruleForm).then((res) => {
+                        this.$axios.post('/login', this.ruleForm).then((res) => {
                             const token = res.headers['authorization']
                             _this.$store.commit('SET_TOKEN', token)
                             _this.$store.commit('SET_USERINFO', res.data.data)
